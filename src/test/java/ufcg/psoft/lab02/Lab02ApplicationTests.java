@@ -1,4 +1,4 @@
-package ufcg.psoft.lab02.Lab02;
+package ufcg.psoft.lab02;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
