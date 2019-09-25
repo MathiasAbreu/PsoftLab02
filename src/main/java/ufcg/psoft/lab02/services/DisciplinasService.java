@@ -68,7 +68,7 @@ public class DisciplinasService {
     public List<Disciplina> getRankingDisciplinas() {
 
         List<Disciplina> disciplinas = getDisciplinas();
-        //Collections.sort(disciplinas, new ComparadorDisciplinaPorNota());
+        Collections.sort(disciplinas, new ComparadorDisciplinaPorNota());
 
         return disciplinas;
     }

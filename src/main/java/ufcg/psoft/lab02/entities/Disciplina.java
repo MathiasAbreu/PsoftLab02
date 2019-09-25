@@ -2,9 +2,11 @@ package ufcg.psoft.lab02.entities;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+@Entity
 public class Disciplina {
 
     @Id
@@ -12,16 +14,16 @@ public class Disciplina {
     private long id;
 
     private String nome;
-    //private String comentarios;
+    private String comentarios;
 
     private double nota;
-    //private int likes;
+    private int likes;
 
-    //@JsonCreator
-    //public Disciplina() {
-      //  super();
-    //}
-/*
+    @JsonCreator
+    public Disciplina() {
+        super();
+    }
+
     @JsonCreator
     public Disciplina(long id, String nome, double nota, String comentarios, int likes) {
 
@@ -31,10 +33,10 @@ public class Disciplina {
         this.comentarios = comentarios;
         this.likes = likes;
 
-    }*/
+    }
 
     @JsonCreator
-    public Disciplina(long id, String nome, double nota) {
+    public Disciplina(String nome, double nota, long id) {
 
         this.id = id;
         this.nome = nome;
@@ -61,7 +63,7 @@ public class Disciplina {
         this.nota = nota;
     }
 
-    /*public String getComentarios() {
+    public String getComentarios() {
         return comentarios;
     }
 
@@ -75,5 +77,5 @@ public class Disciplina {
 
     public void setLikes(int likes) {
         this.likes = likes;
-    }*/
+    }
 }
