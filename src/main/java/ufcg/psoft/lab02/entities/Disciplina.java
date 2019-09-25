@@ -12,16 +12,16 @@ public class Disciplina {
     private long id;
 
     private String nome;
-    private String comentarios;
+    //private String comentarios;
 
     private double nota;
-    private int likes;
+    //private int likes;
 
-    @JsonCreator
-    public Disciplina() {
-        super();
-    }
-
+    //@JsonCreator
+    //public Disciplina() {
+      //  super();
+    //}
+/*
     @JsonCreator
     public Disciplina(long id, String nome, double nota, String comentarios, int likes) {
 
@@ -31,6 +31,14 @@ public class Disciplina {
         this.comentarios = comentarios;
         this.likes = likes;
 
+    }*/
+
+    @JsonCreator
+    public Disciplina(long id, String nome, double nota) {
+
+        this.id = id;
+        this.nome = nome;
+        this.nota = nota;
     }
 
     public long getId() {
@@ -53,7 +61,7 @@ public class Disciplina {
         this.nota = nota;
     }
 
-    public String getComentarios() {
+    /*public String getComentarios() {
         return comentarios;
     }
 
@@ -67,5 +75,5 @@ public class Disciplina {
 
     public void setLikes(int likes) {
         this.likes = likes;
-    }
+    }*/
 }
