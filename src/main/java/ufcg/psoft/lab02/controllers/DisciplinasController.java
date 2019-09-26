@@ -1,5 +1,6 @@
 package ufcg.psoft.lab02.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,7 @@ public class DisciplinasController {
     @PostMapping("/v1/api/disciplinas")
     public ResponseEntity<Disciplina> adicionaDisciplina(@RequestBody Disciplina disciplina) {
 
+        //Disciplina disciplina = new Disciplina(nome,nota);
         return new ResponseEntity<Disciplina>(disciplinasService.adicionaDisciplina(disciplina), HttpStatus.CREATED);
     }
 

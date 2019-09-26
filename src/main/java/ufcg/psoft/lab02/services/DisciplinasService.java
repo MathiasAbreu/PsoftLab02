@@ -42,22 +42,20 @@ public class DisciplinasService {
 
     public Disciplina atualizaDisciplina(Long id, String nome) {
 
-        Disciplina disciplina = disciplinasDAO.getOne(id);
-        disciplina.setNome(nome);
+        return (disciplinasDAO.findById(id).map(record -> {
 
-        disciplinasDAO.deleteById(id);
-
-        return disciplinasDAO.save(disciplina);
+            record.setNome(nome);
+            return disciplinasDAO.save(record);
+        })).get();
     }
 
     public Disciplina atualizaDisciplina(Long id, double nota) {
 
-        Disciplina disciplina = disciplinasDAO.getOne(id);
-        disciplina.setNota(nota);
+        return (disciplinasDAO.findById(id).map(record -> {
 
-        disciplinasDAO.deleteById(id);
-
-        return disciplinasDAO.save(disciplina);
+            record.setNota(nota);
+            return disciplinasDAO.save(record);
+        })).get();
     }
 
     public void removeDisciplina(Long id) {

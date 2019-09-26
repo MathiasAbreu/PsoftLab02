@@ -9,8 +9,7 @@ import javax.persistence.Id;
 @Entity
 public class Disciplina {
 
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     private long id;
 
     private String nome;
@@ -36,9 +35,8 @@ public class Disciplina {
     }
 
     @JsonCreator
-    public Disciplina(String nome, double nota, long id) {
+    public Disciplina(String nome, Double nota) {
 
-        this.id = id;
         this.nome = nome;
         this.nota = nota;
     }

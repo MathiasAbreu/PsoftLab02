@@ -12,9 +12,9 @@ public class ComparadorDisciplinaPorNota implements Comparator<Disciplina> {
     public int compare(Disciplina disciplina01, Disciplina disciplina02) {
 
         if(disciplina01.getNota() > disciplina02.getNota())
-            return 1;
-        else if (disciplina01.getNota() < disciplina02.getNota())
             return -1;
+        else if (disciplina01.getNota() < disciplina02.getNota())
+            return 1;
         else
             return 0;
     }
