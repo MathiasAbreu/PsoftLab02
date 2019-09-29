@@ -25,6 +25,12 @@ public class DisciplinasService {
         return disciplinasDAO.save(disciplina);
     }
 
+    public void adicionaDisciplinas(List<Disciplina> disciplinas) throws Exception {
+
+        for(Disciplina disciplina : disciplinas)
+            disciplinasDAO.save(disciplina);
+    }
+
     public List<Disciplina> getDisciplinas() {
 
         return disciplinasDAO.findAll();

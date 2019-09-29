@@ -24,8 +24,21 @@ public class DisciplinasController {
     @PostMapping("/v1/api/disciplinas")
     public ResponseEntity<Disciplina> adicionaDisciplina(@RequestBody Disciplina disciplina) {
 
-        //Disciplina disciplina = new Disciplina(nome,nota);
         return new ResponseEntity<Disciplina>(disciplinasService.adicionaDisciplina(disciplina), HttpStatus.CREATED);
+    }
+
+    @PostMapping("/v1/api/disciplinas/start")
+    public ResponseEntity<Disciplina> adicionaDisciplinas(@RequestBody List<Disciplina> disciplinas) {
+
+        try {
+
+            disciplinasService.adicionaDisciplinas(disciplinas);
+            return new ResponseEntity<Disciplina>(HttpStatus.ACCEPTED);
+        } catch (Exception err) {
+
+            System.out.println("Não foi possivel adicionar as disciplinas selecionadas. Erro: " + err.getMessage());
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 
     @GetMapping("/v1/api/disciplinas")
