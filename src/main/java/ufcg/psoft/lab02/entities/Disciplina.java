@@ -76,4 +76,17 @@ public class Disciplina {
     public void setLikes(int likes) {
         this.likes = likes;
     }
+
+    public void adicionaLike() {
+
+        this.likes += 1;
+    }
+
+    public void adicionaComentario(String comentario) {
+
+        if(this.comentarios == null)
+            this.comentarios = comentario;
+        else
+            this.comentarios += ("\n" + comentario);
+    }
 }

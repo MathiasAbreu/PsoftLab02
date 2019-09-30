@@ -3,6 +3,7 @@ package ufcg.psoft.lab02.services;
 import org.springframework.stereotype.Service;
 import ufcg.psoft.lab02.dao.DisciplinasRepository;
 import ufcg.psoft.lab02.entities.Disciplina;
+import ufcg.psoft.lab02.services.comparators.ComparadorDisciplinaPorLike;
 import ufcg.psoft.lab02.services.comparators.ComparadorDisciplinaPorNota;
 
 import java.util.Collections;
@@ -64,15 +65,42 @@ public class DisciplinasService {
         })).get();
     }
 
+    public Disciplina adicionaLike(Long id) {
+
+        return (disciplinasDAO.findById(id).map(record -> {
+
+            record.adicionaLike();
+            return disciplinasDAO.save(record);
+
+        })).get();
+    }
+
+    public Disciplina adicionaComentario(Long id, String comentario) {
+
+        return (disciplinasDAO.findById(id).map(record -> {
+
+            record.adicionaComentario(comentario);
+            return disciplinasDAO.save(record);
+        })).get();
+    }
+
     public void removeDisciplina(Long id) {
 
         disciplinasDAO.deleteById(id);
     }
 
-    public List<Disciplina> getRankingDisciplinas() {
+    public List<Disciplina> getRankingDisciplinasPorNotas() {
 
         List<Disciplina> disciplinas = getDisciplinas();
         Collections.sort(disciplinas, new ComparadorDisciplinaPorNota());
+
+        return disciplinas;
+    }
+
+    public List<Disciplina> getRankingDisciplinasPorLikes() {
+
+        List<Disciplina> disciplinas = getDisciplinas();
+        Collections.sort(disciplinas, new ComparadorDisciplinaPorLike());
 
         return disciplinas;
     }
